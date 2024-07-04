@@ -15,4 +15,4 @@ This project implements a file transfer system using gRPC, providing efficient a
   - Once a file is selected, the server streams the file data back to the client using server streaming.
 
 ## Demo
-<a href="https://youtu.be/x3mx3Jofzr8?si=IT-XR0irYrkK2PeZ" > file transfer using grpc (not yet) </a>
+<a href="https://www.youtube.com/watch?v=UYJzWbKSivY" > file transfer using grpc </a>
