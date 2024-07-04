@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option csharp_namespace = "Client.Protos";
+
+message UploadFileRequest{
+	oneof data{
+		FileInfo info = 1;
+		bytes chunk_data = 2;
+	};
+}
+
+message FileInfo{
+	string fileId = 1;
+	string fileType = 2;
+}
+
+message UploadFileResponse {
+  string id = 1;
+  uint32 size = 2;
+}
+
+message GetAllItemsResponse{
+	repeated UploadFileResponse items = 1;
+}
+message DownloadFileRequest{
+	string fileName = 1;
+}
+
+message DownloadFileResponse{
+	oneof data{
+		Error error_message = 1;
+		DownloadFileChunks chunk = 2;
+	}
+}
+message Error{
+	string msg = 1;
+}
+
+message DownloadFileChunks{
+	bytes chunk_data = 1;
+	uint32 size = 2;
+}

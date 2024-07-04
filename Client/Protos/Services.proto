@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "Client.Protos";
+import "Protos/Models.proto";
+import "google/protobuf/empty.proto";
+
+service FileTransfer{
+	rpc UploadFile(stream UploadFileRequest) returns (stream UploadFileResponse);
+	rpc GetAllItems(google.protobuf.Empty) returns (GetAllItemsResponse);
+	//it's server streaming, u don't need to stream any thing to the server as a client, the server isn't interested in ur progress
+	rpc DownloadFile(DownloadFileRequest) returns (stream DownloadFileResponse);
+}
